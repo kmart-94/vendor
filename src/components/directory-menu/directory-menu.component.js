@@ -16,13 +16,11 @@ class DirectoryMenu extends React.Component {
     render() {
         return (
             <div className="directory-menu">
-                {this.state.sections.map(({id, title, imageUrl, size}) => 
+                {this.state.sections.map(({id, ...sectionProps}) => 
                     <MenuItem 
                         key={id}
-                        title={title.toUpperCase()} 
-                        imageUrl={imageUrl}
-                        subtitle="SHOP NOW" 
-                        size={size}
+                        subtitle="SHOP NOW"
+                        {...sectionProps}
                     />)
                 }
             </div>
