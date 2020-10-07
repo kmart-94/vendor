@@ -3,11 +3,12 @@ import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component.js';
 import ShopPage from './pages/shopPage/ShopPage.component.js';
-
+import Header from './components/header/Header.component.js';
 
 function App() {
   return (
     <div>
+      <Header />
     {/*switch wraps Route tags to display the first page whose path 
     matches path specified unless exact specifies otherwise. */}
       <Switch>
