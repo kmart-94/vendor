@@ -2,12 +2,8 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component.js';
+import ShopPage from './pages/shopPage/ShopPage.component.js';
 
-const HatsPage = () => {
-  return <div>
-    <h1>HATS PAGE</h1>
-  </div>
-}
 
 function App() {
   return (
@@ -20,7 +16,7 @@ function App() {
       {/* path is a string of the path from the current place we are at */}
       {/* exact is true or false and decides if  path must be exactly the specified path for it to render. prevents or allows stacked rendering*/}
         <Route exact path="/" component={HomePage} />
-        <Route path="/shop/hats" component={HatsPage} />
+        <Route exact path="/shop" component={ShopPage} />
       </Switch>
     </div>
   );
