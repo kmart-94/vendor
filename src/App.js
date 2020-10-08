@@ -4,6 +4,7 @@ import './App.css';
 import HomePage from './pages/homepage/homepage.component.js';
 import ShopPage from './pages/shopPage/ShopPage.component.js';
 import Header from './components/header/Header.component.js';
+import LogInPage from './pages/log-in/LogInPage.component.js';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       {/* path is a string of the path from the current place we are at */}
       {/* exact is true or false and decides if  path must be exactly the specified path for it to render. prevents or allows stacked rendering*/}
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/shop" component={ShopPage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route path="/signin" component={LogInPage} />
       </Switch>
     </div>
   );
