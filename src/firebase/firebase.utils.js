@@ -19,6 +19,35 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   //firebase.analytics();
 
+  export const createUserProfileDoc = async (userAuth, additionalData) => {
+    if(!userAuth) return;
+
+    //create a reference to this users location
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+    //get whatever data is located at reference
+    const snapShot = await userRef.get();
+    
+    //checks if the user doesn't already exist
+    if (!snapShot.exists) {
+        const {displayName, email} = userAuth;
+        const createdAt = new Date();
+
+        //if the user doesn't already exist, then create one with the data above
+        try {
+            await userRef.set({
+                displayName,
+                email,
+                createdAt,
+                ...additionalData
+            });
+        } catch (e) {
+            console.log('error creating user', e.message);
+        }
+    }
+    //allways return user ref in case we want o use it later
+    return userRef;
+  };
+
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();
 
